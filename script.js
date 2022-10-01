@@ -1,7 +1,7 @@
 function reverseStr(str){
-    var listOfChars = str.split('');
+    var listOfChars = str.split("");
     var reverseOfListOfChars = listOfChars.reverse();
-    var reversedStr= reverseOfListOfChars.join('');
+    var reversedStr= reverseOfListOfChars.join("");
     return reversedStr;
 }
 
@@ -39,8 +39,20 @@ function getAllDateFormats(date){
     var yymmdd=dateStr.year.slice(-2) + dateStr.month + dateStr.day;
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy,mmddyy,yymmdd,]
 }
+function checkPalindromeForAllDateFormats(date){
+    var listOfPalindromes = getAllDateFormats(date);
+    var flag = false;
+    for(var i=0;i<getAllDateFormats.length;i++){
+        if(isPalindrome(listOfPalindromes[i])){
+            flag =true;
+            break;
+        }
+    }
+    return flag;
+}
 
 var date={
     day: 5,month: 6, year: 1996,
 }
-console.log(getAllDateFormats(date));
+
+console.log(checkPalindromeForAllDateFormats(date));
